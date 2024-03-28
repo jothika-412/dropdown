@@ -1,0 +1,105 @@
+<!--DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Dropdown Example</title>
+</head>
+<body>
+    <h2>Select a Option</h2>
+    <form th:action="@{/process}" method="post">
+		<label>select user</label>
+        <select name="selectedOption">
+            <option th:each="option : ${employee}" th:value="${employee.id}" th:text="${employee.name}"></option>
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>-->
+
+<!--DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch Employee Name</title>
+</head>
+<body>
+	<div style="text-align: center; margin-top: 50px;">
+
+<h2>Fetch Employee Name</h2>
+<form action="/getEmployeeName" method="get">
+    Employee:
+    <select name="employeeName" id="employeeName">
+        <option value="">Select Employee</option>
+        <option th:each="emp : ${savedEmployee}" th:value="${emp.id}" th:text="${emp.name}"></option>
+    </select><br/>
+    <button type="submit">Fetch Name</button>
+</form>
+<div th:if="${employeeName}">
+    <h3 th:text="'Employee Name: ' + ${employeeName}"></h3>
+</div>
+</body>
+</html>
+
+<!--!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Information</title>
+</head>
+<body>
+    <div style="text-align: center; margin-top: 50px;">
+        <h2>Employee Information</h2>
+        <form action="/submitEmployee" method="post" th:object="${employee}">
+            Name: <input type="text" th:field="*{name}"/><br/>
+            <select th:field="*{userId}">
+                <option th:each="user : ${users}" th:value="${user.id}" th:text="${user.name}"></option>
+            </select><br/>
+            <input type="submit" value="Next"/>
+        </form>
+    </div>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Fetch Employee Name</title>
+
+</head>
+
+<body>
+
+<h2>Fetch Employee Name</h2>
+
+<form action="/getEmployeeName" method="get">
+
+
+    Employee: 
+
+    <select name="employeeId" id="employeeId">
+
+        <option value="">Select Employee</option>
+
+        <option th:each="emp : ${employees}" th:value="${emp.id}" th:text="${emp.name}">Employee Name</option>
+
+    </select><br/>
+
+    <button type="submit">Fetch Name</button>
+
+</form>
+
+<div th:if="${employeeName}">
+
+    <h3 th:text="'Employee Name: ' + ${employeeName}"></h3>
+
+</div>
+
+</body>
+
+</html>
+
